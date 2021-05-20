@@ -1,3 +1,8 @@
+body {
+  width: 100%;
+  overflow-x: hidden
+}
+
 .text-muted {
   display: none !important;
 }
@@ -18,6 +23,8 @@
   justify-content: space-between;
 }
 
+
+
 @media only screen and (max-width: 800px) {
   body {
     background-color: lightblue;
@@ -25,3 +32,4 @@
   .login-img {
     display: none;
   }
+}

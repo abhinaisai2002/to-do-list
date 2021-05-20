@@ -34,10 +34,13 @@ def login_view(request):
                 login(request, user)
                 messages.success(request, "Logged In")
                 return redirect('home')
+            else:
+                form = LoginForm(data = request.POST)
+                return render(request,'users/login.html',{'form':form})
         else:
             form = LoginForm()
-        context = {'form':form}
-        return render(request, 'users/login.html',context)
+            context = {'form':form}
+            return render(request, 'users/login.html',context)
 
 def logout_view(request):
     user = request.user
