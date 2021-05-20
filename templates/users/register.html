@@ -1,32 +1,33 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
+{% load static %}
 {% block content%}
     
-    <div class="container mt-5 mb-5 p-4  border border-dark rounded">
-        <form action="" method="POST" class="mb-3">
-            {% csrf_token %}
-            <!-- {% for fields in form %}
-            
-                <div class="form-group">
-                    <label for="exampleInputEmail1">{{fields.label}} </label>
-                    {{fields}}
-                    <input type="" name="" id="">
-                </div>
-            
-            {% endfor %} -->
-            <fieldset class="form-group">
-                <legend class="border-bottom mb 4">
-                    Create An Account
-                </legend>
-                {{ form|crispy }}
-            </fieldset>
-            <button type="submit" class="btn btn-primary">Sign in</button>
-        </form>
-            <div class="border-top pt-3">
-                <small class="text-muted">
-                    Already Have an Account? <a class='ml-1' href="#">Sign In</a>
-                </small>
+    <div class="container mt-5 mb-5 p-4 ">
+        <div class="row">
+            <div class="col mr-5">
+                <img src="{% static 'images/login.png' %}" alt="" width="500px">
             </div>
+            <div class="col">
+                <form action="" method="POST" class="mb-3">
+                    {% csrf_token %}
+                
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb 4">
+                            Create An Account
+                        </legend>
+                        {{ form|crispy }}
+                    </fieldset>
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                </form>
+                <div class="border-top pt-3">
+                    <small >
+                        Already Have an Account? <a class='ml-1' href="{% url 'users:login'%}">Sign In</a>
+                    </small>
+                </div>
+            </div>
+        </div>
+
     </div>
     
 {% endblock content %}
