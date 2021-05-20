@@ -5,7 +5,7 @@ from django.forms import fields
 from django.db import models
 
 class UserCreateForm(UserCreationForm):
-    email = models.EmailField()
+    email = forms.EmailField()
     class Meta:
         model = User
         fields = ['username','email','password1','password2']
