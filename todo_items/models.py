@@ -8,3 +8,6 @@ class Items(models.Model):
     status = models.BooleanField(default=False)
     time = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.title
+
