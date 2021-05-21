@@ -9,6 +9,59 @@
             </div>
         {% endfor %}
     {% endif %}
+    <div class="container p-5 mt-5 border border-dark rounded">
+        <nav class="d-flex justify-content-between mb-2">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active h4" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button"
+                    role="tab" aria-controls="nav-home" aria-selected="true">Todos</button>
+                <button class="nav-link h4" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button"
+                    role="tab" aria-controls="nav-profile" aria-selected="false">Completed</button>
+                
+            </div>
+            <div class="pt-1 pb-1">
+                <a style="text-decoration: none;" href="{% url 'users:todo_items:add-item' %}" class="text-light"><button type="button" class="btn btn-primary pt-2 pb-2">Add Item</button></a>
+            </div>
+            
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <!-- for todos -->
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                {% for item in items %}
+                    {% if item.status == False %}
+                        <div class="card">
+                        
+                            <div class="card-body">
+                                <h5 class="card-title h4">{{item.title}}</h5>
+                                <p class="card-text h5">{{item.get_description}}</p>
+                                <div class="d-flex justify-content-end">
+                                    <a href="{% url 'users:todo_items:update-item' item.id %}" class="btn btn-dark mr-3">Update</a>
+                                    <a href="{% url 'users:todo_items:delete-item' item.id %}" class="btn btn-danger">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif%}
+                {% endfor %}
+            </div>
+            <!-- for completed -->
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                {% for item in items %}
+                    {% if item.status %}
+                        <div class="card">
+                        
+                            <div class="card-body">
+                                <h5 class="card-title h4 ">{{item.title}}</h5>
+                                <p class="card-text h5">{{item.get_description}}</p>
+                                <div class="d-flex justify-content-end">
+                                    <a href="{% url 'users:todo_items:delete-item' item.id %}" class="btn btn-danger">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif%}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+   
 {% endblock %}
 
 
