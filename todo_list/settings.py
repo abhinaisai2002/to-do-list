@@ -25,7 +25,7 @@ SECRET_KEY = 'fkgr5jib%e4g&#kz6wi0m&g+rkc@lxt(q!71cy+mzj^8e)xxs1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://abhinai-todo-list.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['abhinai-todo-list.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -120,7 +120,7 @@ USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+#STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static')
